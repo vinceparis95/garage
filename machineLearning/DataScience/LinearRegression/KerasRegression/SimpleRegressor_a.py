@@ -1,3 +1,5 @@
+# a simple Keras regression network, trained initially on csv of Pima indian diabetes dataset
+
 # organize imports
 from tensorflow.python.keras.models import Sequential
 from tensorflow.python.keras.layers import Dense
