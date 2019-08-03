@@ -1,4 +1,3 @@
-# a simple Keras regression network, trained initially on csv of Pima indian diabetes dataset
 
 import matplotlib.pyplot as plt
 import numpy as np
