@@ -7,7 +7,7 @@ def sum_a(num):
     return sum(range(num + 1))
 
 
-print(sum_a(4))
+print(sum_a(5))
 
 
 
