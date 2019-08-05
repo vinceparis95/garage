@@ -1,0 +1,9 @@
+The object of the teleportation game is to teleport a state to a friend
+
+In order to teleport information, we have to build the following circuit:
+3 qubits
+a hadamard and a cnot
+2 hadamards and a phase
+a single cnot
+a final hadamard 
+2 readouts
