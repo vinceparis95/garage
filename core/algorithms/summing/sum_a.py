@@ -10,4 +10,3 @@ def sum_a(num):
 print(sum_a(5))
 
 
-
