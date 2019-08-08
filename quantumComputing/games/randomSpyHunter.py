@@ -3,16 +3,16 @@ import math
 ## Uncomment the next line to see diagrams when running in a notebook
 #%matplotlib inline
 
-## Example 2-4: Quasntum Spy Hunter
+## Example 2-4: Quantum Spy Hunter
 # Set up the program
-alice = QuantumRegister(1, name='alice')
+alice = QuantumRegister(1, name='alice') # set up alice's quantum register
 fiber = QuantumRegister(1, name='fiber')
 bob   = QuantumRegister(1, name='bob')
 alice_had = ClassicalRegister(1, name='ahad')
 alice_val = ClassicalRegister(1, name='aval')
 fiber_val = ClassicalRegister(1, name='fval')
-bob_had   = ClassicalRegister(1, name='bhad')
-bob_val   = ClassicalRegister(1, name='bval')
+bob_had = ClassicalRegister(1, name='bhad')
+bob_val = ClassicalRegister(1, name='bval')
 qc = QuantumCircuit(alice, fiber, bob, alice_had, alice_val, fiber_val, bob_had, bob_val)
 
 # Use Alice's QPU to generate two random bits
