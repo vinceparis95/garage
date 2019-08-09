@@ -7,3 +7,9 @@ a hadamard and a cnot
 a single cnot
 a final hadamard 
 2 readouts
+
+0. initialize all qubits to state 0
+1. add hadamard to qubit 2, and a cnot on qubit 2 to 3.
+2. prep payload with a had | rotate | had on qubit 1
+3. add a cnot on qubit 1 to 2.
+4. add a had on qubit 1.
