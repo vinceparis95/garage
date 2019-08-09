@@ -1,0 +1,18 @@
+Least squares regression is a way of calculating the values m (slope) and b (y-intercept) in the equation of a line; this helps up to determine the line of best fit.
+
+y = how far up
+x = how far along 
+m = the slope, or gradient
+b = the y-intercept. 
+
+in order to find the line of best fit, we have 5 steps
+
+1. for each (x,y) point, calculate xSquared and xy.
+2. Sum all x, y, xSquared, and xy values, giving us sigma_x, sigma_y, sigma_xSquared, and sigma_xy.
+3. calculate slope of m, which is: 
+-> ((number of points) * sigma_xy) - (sigma_x * sigma_y)
+ over ((number of points) * sigma_xSquared) - (sigma_x * sigma_x)
+4. calculate intercept b, which is:
+-> sigma_y - (m * sigma_x)
+ over (number of points)
+5. plug values in for y = mx + b!
