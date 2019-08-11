@@ -1,4 +1,4 @@
-# K-Means Clustering
+# K-Means clusterers
 
 # Importing the libraries
 import numpy as np
