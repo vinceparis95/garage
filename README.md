@@ -1,2 +1,2 @@
 # garage
-a set of tool kits for quantum computing, machine learning, and core mathy stuff
+a sequence of tool kits for machine learning and quantum computing
