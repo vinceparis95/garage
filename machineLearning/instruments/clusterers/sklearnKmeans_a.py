@@ -1,4 +1,4 @@
-# K-Means clusterers
+# K-Means clusterer
 
 # Importing the libraries
 import numpy as np
@@ -35,9 +35,12 @@ plt.ylabel('WCSS')
 plt.show()
 
 # Applying k-means to the cars dataset
-kmeans = KMeans(n_clusters=3, init='k-means++', max_iter=300, n_init=10, random_state=0)
+kmeans = KMeans(n_clusters=3,
+                init='k-means++',
+                max_iter=300,
+                n_init=10,
+                random_state=0)
 y_kmeans = kmeans.fit_predict(X)
-
 X = X.as_matrix(columns=None)
 
 # Visualising the clusters
