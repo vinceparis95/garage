@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-# CSV operations
+# CSV elements
 
 # # > Load csv to pandas
 # df = pd.read_csv('/home/vince/Desktop/pima.csv')
