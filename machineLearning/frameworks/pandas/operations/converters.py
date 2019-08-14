@@ -1,10 +1,15 @@
-import numpy as np
 import pandas as pd
 import numpy as np
 
-numpyArray = np.array([[1, 2, 3], [3, 2, 1]])
-print(numpyArray.shape)
+# CSV operations
 
-df = pd.DataFrame(numpyArray)
+# # > Load csv to pandas
+# df = pd.read_csv('/home/vince/Desktop/pima.csv')
+# print(df)
 
+# > create DataFrame from numpy array
+array = np.ones(shape=(3, 3))
+df = pd.DataFrame(data=array)
 print(df)
+
+
