@@ -2,8 +2,8 @@ import tensorflow as tf
 from tensorflow import keras
 import pandas as pd
 
-# prepare the data
 # mL/frameworks/pandas/operations/csv_converters
+# prepare the data
 # # Load csv to pandas
 df = pd.read_csv('/home/vince/Desktop/youthy.csv')
 print(df)
@@ -56,3 +56,4 @@ model.fit(inputTensor, outputTensor, epochs=1000, steps_per_epoch=10)
 # # test the network
 results = model.predict(inputTensor, verbose=1, steps=1)
 print(results)
+
