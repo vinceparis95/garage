@@ -2,8 +2,8 @@ import pandas as pd
 import numpy as np
 
 # construct DataFrame from a dictionary
-d = {'column_1': [1, 5], 'column_2': [9, 19]}
-df = pd.DataFrame(d)  # default datatype is int64
+dictionary = {'column_1': [1, 5], 'column_2': [9, 19]}
+df = pd.DataFrame(dictionary)  # default datatype is int64
 # or pd.DataFrame(data = d, dtype = np.int8/16/32 etc)
 print(df)
 
