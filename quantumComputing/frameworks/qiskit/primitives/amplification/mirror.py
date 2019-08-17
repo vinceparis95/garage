@@ -1,19 +1,14 @@
 
 from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister, execute, Aer, IBMQ, BasicAer
 import math
-## Uncomment the next line to see diagrams when running in a notebook
-#%matplotlib inline
-
-## Example 6-1: Apply mirror to flipped phase
-
-## Note that this looks different from the gates in the book, because
-## we're building the operations from Toffoli gates
 
 # Set up the program
 reg = QuantumRegister(4, name='reg')
 scratch = QuantumRegister(1, name='scratch')
 qc = QuantumCircuit(reg, scratch)
 
+
+# define the mirror operation
 def main():
     number_to_flip = 3
     number_of_iterations = 4
@@ -33,8 +28,10 @@ def main():
         Grover(reg)
 
 ###############################################
+
 ## Some utility functions
 
+# this is the beautiful mirror operation
 def Grover(qreg, condition_qubits=None):
     if condition_qubits is None:
         condition_qubits = []
