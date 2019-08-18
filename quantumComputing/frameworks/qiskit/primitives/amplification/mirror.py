@@ -2,29 +2,35 @@
 from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister, execute, Aer, IBMQ, BasicAer
 import math
 
-# Set up the program
+# Set up the two registers
 reg = QuantumRegister(4, name='reg')
 scratch = QuantumRegister(1, name='scratch')
+# create the circuit from the registers
 qc = QuantumCircuit(reg, scratch)
 
 
 # define the mirror operation
 def main():
-    number_to_flip = 3
-    number_of_iterations = 4
-
+    # set the marked value
+    number_to_flip = 9
+    # set the flip number
+    number_of_iterations = 9
+    # place the whole register into a superposition
     qc.h(reg)
 
     for i in range(number_of_iterations):
-        ## Flip the marked value
         qc.barrier()
-        x_bits = ~number_to_flip
+        x_bits = number_to_flip
+
         x_list = [reg[x] for x in range(len(reg)) if x_bits & (1 << x)]
+
+        # set up the nots, multi-phase, and nots
         qc.x(x_list)
         multi_cz([x for x in reg])
         qc.x(x_list)
-
         qc.barrier()
+
+        # run the Grover
         Grover(reg)
 
 ###############################################
@@ -42,14 +48,14 @@ def Grover(qreg, condition_qubits=None):
     qc.h(qreg)
 
 def multi_cz(qubits):
-    ## This will perform a CCCCCZ on as many qubits as we want,
-    ## as long as we have enough scratch qubits
+    # This will perform a CCCCCZ on as many qubits as we want,
+    # as long as we have enough scratch qubits
     multi_cx(qubits, do_cz=True)
 
 def multi_cx(qubits, do_cz=False):
-    ## This will perform a CCCCCX with as many conditions as we want,
-    ## as long as we have enough scratch qubits
-    ## The last qubit in the list is the target.
+    # This will perform a CCCCCX with as many conditions as we want,
+    # as long as we have enough scratch qubits
+    # The last qubit in the list is the target.
     target = qubits[-1]
     conds = qubits[:-1]
     scratch_index = 0
@@ -81,7 +87,7 @@ def multi_cx(qubits, do_cz=False):
 
 main()
 
-## That's the program. Everything below runs and draws it.
+# That's the program. Everything below runs and draws it.
 
 backend = BasicAer.get_backend('statevector_simulator')
 job = execute(qc, backend)
