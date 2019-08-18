@@ -1,0 +1,6 @@
+classification is the means by which we will able to predict categories for data or images.
+
+Let us first construct a dummy data set. 
+- Create a csv file, with 9 rows, and 5 columns.
+- an example would be an touch_count, dribble_count, pass_count, ppm. 
+- - we could use a classifier to predict if the person would be an all star.
