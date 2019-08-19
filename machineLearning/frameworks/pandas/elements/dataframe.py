@@ -12,3 +12,7 @@ numpyArray = np.array([[1, 2, 3], [3, 2, 1]])
 df = pd.DataFrame(numpyArray)
 print(df)
 
+# or read a dataframe from a csv!
+# # Load csv to pandas
+df = pd.read_csv('/home/vince/Desktop/youthy.csv')
+print(df)
