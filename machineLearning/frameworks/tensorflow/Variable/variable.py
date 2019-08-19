@@ -6,3 +6,4 @@ print(w)
 # with tf.compat.v1.Session() as sess:
 #     sess.run(w.initializer)
 #     sess.close()
+
