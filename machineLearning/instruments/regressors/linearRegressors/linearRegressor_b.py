@@ -5,10 +5,9 @@ from sklearn.preprocessing import MinMaxScaler
 from tensorflow.python.keras.models import Sequential
 from tensorflow.python.keras.layers import Dense
 
-import os
 dataset = np.loadtxt('/home/vince/Desktop/pima.csv', delimiter=",")
-x=dataset[:,0:5]
-y=dataset[:,5]
+x=dataset[:, 0:5]
+y=dataset[:, 5]
 y=np.reshape(y, (-1,1))
 scaler_x = MinMaxScaler()
 scaler_y = MinMaxScaler()
@@ -33,8 +32,8 @@ history = model.fit(X_train, y_train,
                     batch_size=50,
                     verbose=1,
                     validation_split=0.2)
-
 print(history.history.keys())
+
 plt.plot(history.history['loss'])
 plt.plot(history.history['val_loss'])
 plt.title('model loss')
@@ -47,7 +46,6 @@ Xnew = np.array([[3,100,44,75,30.9]])
 Xnew= scaler_x.transform(Xnew)
 ynew= model.predict(Xnew)
 
-#invert normalize
 ynew = scaler_y.inverse_transform(ynew)
 Xnew = scaler_x.inverse_transform(Xnew)
 print("X=%s, Predicted=%s" % (Xnew[0], ynew[0]))
