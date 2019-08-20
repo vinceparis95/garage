@@ -1,0 +1,4 @@
+
+gates
+- hadamard gate
+> > if the circles in a state map have some probability, the hadamard gate will act like a pouring mechanism, pouring the water of the probabilities of some circles into others. 
