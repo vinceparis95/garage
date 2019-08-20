@@ -21,12 +21,12 @@ print(len(test), 'test examples')
 def df_to_dataset(dataframe, shuffle=True, batch_size=32):
   dataframe = dataframe.copy()
   labels = dataframe.pop('Trained')
-
   ds = tf.data.Dataset.from_tensor_slices((dict(dataframe), labels))
   if shuffle:
-    ds = ds.shuffle(buffer_size=len(dataframe))
-  ds = ds.batch(batch_size)
-  return ds
+      ds = ds.shuffle(buffer_size=len(dataframe))
+      ds = ds.batch(batch_size)
+      return ds
+
 
 batch_size = 5
 # A small batch sized is used for demonstration purposes
@@ -49,5 +49,6 @@ def demo(feature_column):
   feature_layer = tf.compat.v1.keras.layers.DenseFeatures(feature_column)
   print(feature_layer(example_batch).numpy())
 
-
+age = feature_column.numeric_column("Age")
+demo(age)
 # based on TensorFlow mL basics classifier for structured data
