@@ -1,43 +1,42 @@
 
 from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister, execute, Aer, IBMQ, BasicAer
 import math
+## Uncomment the next line to see diagrams when running in a notebook
+#%matplotlib inline
 
-# Set up the two registers
+## Example 6-3: Multiple flipped entries
+
+## Note that this looks different from the gates in the book, because
+## we're building the operations from Toffoli gates
+## Also, increasing the register size will require increasing the scratch size as well.
+
+# Set up the program
 reg = QuantumRegister(4, name='reg')
 scratch = QuantumRegister(1, name='scratch')
-# create the circuit from the registers
 qc = QuantumCircuit(reg, scratch)
 
-
-# define the mirror operation
 def main():
-    # set the marked value
-    number_to_flip = 9
-    # set the flip number
-    number_of_iterations = 9
-    # place the whole register into a superposition
+    n2f = [0,1,2]
+    number_of_iterations = 5
+
     qc.h(reg)
 
     for i in range(number_of_iterations):
+        ## Flip the marked value
         qc.barrier()
-        x_bits = number_to_flip
+        for number_to_flip in n2f:
+            x_bits = ~number_to_flip
+            x_list = [reg[x] for x in range(len(reg)) if x_bits & (1 << x)]
+            qc.x(x_list)
+            multi_cz([x for x in reg])
+            qc.x(x_list)
 
-        x_list = [reg[x] for x in range(len(reg)) if x_bits & (1 << x)]
-
-        # set up the nots, multi-phase, and nots
-        qc.x(x_list)
-        multi_cz([x for x in reg])
-        qc.x(x_list)
         qc.barrier()
-
-        # run the Grover
         Grover(reg)
 
 ###############################################
-
 ## Some utility functions
 
-# this is the beautiful mirror operation
 def Grover(qreg, condition_qubits=None):
     if condition_qubits is None:
         condition_qubits = []
@@ -48,14 +47,14 @@ def Grover(qreg, condition_qubits=None):
     qc.h(qreg)
 
 def multi_cz(qubits):
-    # This will perform a CCCCCZ on as many qubits as we want,
-    # as long as we have enough scratch qubits
+    ## This will perform a CCCCCZ on as many qubits as we want,
+    ## as long as we have enough scratch qubits
     multi_cx(qubits, do_cz=True)
 
 def multi_cx(qubits, do_cz=False):
-    # This will perform a CCCCCX with as many conditions as we want,
-    # as long as we have enough scratch qubits
-    # The last qubit in the list is the target.
+    ## This will perform a CCCCCX with as many conditions as we want,
+    ## as long as we have enough scratch qubits
+    ## The last qubit in the list is the target.
     target = qubits[-1]
     conds = qubits[:-1]
     scratch_index = 0
@@ -87,7 +86,7 @@ def multi_cx(qubits, do_cz=False):
 
 main()
 
-# That's the program. Everything below runs and draws it.
+## That's the program. Everything below runs and draws it.
 
 backend = BasicAer.get_backend('statevector_simulator')
 job = execute(qc, backend)

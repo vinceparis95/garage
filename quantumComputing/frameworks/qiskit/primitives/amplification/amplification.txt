@@ -1,0 +1,18 @@
+amplification is what we use to change our unreadable phase differences into readable magnitude differences. 
+
+flip:
+place qubits into a total superposition
+run total not
+rotate a target qubit
+run total not
+place qubits into a total superposition.
+uncompute
+place qubits into a total superposition
+
+
+i. Classical search:
+>> If we have three possible states for a 4 qubit register. These three states are spread across a 16 feature map, giving us a 3 x 16 matrix of values. 
+
+First create a 3 x 16 matrix in numpy or python, and load them into pandas.
+
+
