@@ -57,3 +57,6 @@ model.fit(inputTensor, outputTensor, epochs=1000, steps_per_epoch=10)
 results = model.predict(inputTensor, verbose=1, steps=1)
 print(results)
 
+
+# holla@ @cyrilivargarcia on medium beginners keras
+
