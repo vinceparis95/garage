@@ -12,9 +12,9 @@ qc = QuantumCircuit(signal)
 def main():
     ## prepare the signal
     qc.h(signal);
-    qc.rz(math.radians(45), signal[0]);
-    qc.rz(math.radians(90), signal[1]);
-    qc.rz(math.radians(180), signal[2]);
+    qc.rz(math.radians(45), signal[0])
+    qc.rz(math.radians(90), signal[1])
+    qc.rz(math.radians(180), signal[2])
 
     qc.barrier()
     QFT(signal)
